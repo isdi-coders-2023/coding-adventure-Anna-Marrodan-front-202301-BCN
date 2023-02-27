@@ -1,47 +1,57 @@
 import { createGlobalStyle } from "styled-components";
 import "../node_modules/@fontsource/saira-stencil-one/400.css";
+import "../node_modules/@fontsource/roboto/700.css";
+import "../node_modules/@fontsource/roboto/400.css";
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
 
-  * {
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-  }
-
-  html {
-    font-family: "Saira Stencil One", sans-serif;
-    color: #1E1E1E;
-
-  }
-
-  body {
-    background-color: #1E1E1E;
-  }
+    :root{
+    --primaryColor: #1e1e1e;
+    --accentColor: #cccf18;
+    --primaryFont:"Roboto";
+    --accentFont: "Saira Stencil One", sans-serif;
   
-  ol, ul {
-    list-style: none;
-  }
+    }
 
-  button {
-    border: none;
-    background: none;
-    font-family: inherit;
-  }
+    * {
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
 
-  input {
-    border: none;
-    font-family: inherit;
-  }
+    html {
+      font-family: var(--accent-font);
+      color: var(--primaryColor)
 
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
+    }
 
-  img{
-    max-width: 100%;
-  }
+    body {
+      background-color: var(--primaryColor)
+    }
+    
+    ol, ul {
+      list-style: none;
+    }
+
+    button {
+      border: none;
+      background: none;
+      font-family: inherit;
+    }
+
+    input {
+      border: none;
+      font-family: inherit;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img{
+      max-width: 100%;
+    }
 `;
 
-export default GlobalStyle;
+export default GlobalStyles;
