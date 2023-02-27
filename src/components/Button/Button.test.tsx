@@ -3,7 +3,7 @@ import Button from "./Button";
 
 describe("Given a Button component", () => {
   describe("When it is rendered with the text 'Sign up'", () => {
-    test("Then it should show a button", () => {
+    test("Then it should show a button with the text 'Sign up'", () => {
       const expectedText = "Sign up";
 
       render(<Button text={expectedText} />);
