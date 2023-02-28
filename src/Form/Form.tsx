@@ -3,15 +3,15 @@ export const Form = (): JSX.Element => {
     <>
       <div>
         <label htmlFor="email">Email</label>
-        <input type="text" placeholder="Introduce your email" />
+        <input type="email" placeholder="Introduce your email" />
       </div>
       <div>
         <label htmlFor="password">Password</label>
-        <input type="text" placeholder="Introduce your password" />
+        <input type="password" placeholder="Introduce your password" />
       </div>
       <div>
         <label htmlFor="image">Image</label>
-        <input type="text" placeholder="Introduce an image" />
+        <input type="file" placeholder="Introduce an image" />
       </div>
       <button></button>
     </>
