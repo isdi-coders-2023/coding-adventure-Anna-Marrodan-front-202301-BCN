@@ -13,9 +13,13 @@ export const GlobalStyles = createGlobalStyle`
   
     }
 
+    body {
+      margin:0;
+      font-family: var(--primaryFont);
+    }
+
     * {
       box-sizing:border-box;
-      margin:0;
       padding:0;
     }
 
