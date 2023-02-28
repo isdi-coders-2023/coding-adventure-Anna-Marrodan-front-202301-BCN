@@ -19,7 +19,7 @@ export const Form = ({ submitForm }: FormProps): JSX.Element => {
           required
         />
         <span
-          className="form__required-text form__required-text--visible"
+          className="form__required-text form__required-text--hidden"
           hidden
         >
           Email is required
@@ -37,7 +37,7 @@ export const Form = ({ submitForm }: FormProps): JSX.Element => {
           required
         />
         <span
-          className="form__required-text form__required-text--visible"
+          className="form__required-text form__required-text--hidden"
           hidden
         >
           Password is required
@@ -48,14 +48,14 @@ export const Form = ({ submitForm }: FormProps): JSX.Element => {
           Image
         </label>
         <input
-          className="form__input"
+          className="form__input form__input--file"
           type="file"
           placeholder="Introduce an image"
           id="image"
           required
         />
         <span
-          className="form__required-text form__required-text--visible"
+          className="form__required-text form__required-text--hidden"
           hidden
         >
           Image is required
