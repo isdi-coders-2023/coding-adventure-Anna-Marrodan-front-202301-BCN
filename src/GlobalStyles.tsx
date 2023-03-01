@@ -8,14 +8,19 @@ export const GlobalStyles = createGlobalStyle`
     :root{
     --primaryColor: #1e1e1e;
     --accentColor: #cccf18;
+    --primaryFontColor: #fff;
+    --warningFontColor: #f3949A;
     --primaryFont:"Roboto";
     --accentFont: "Saira Stencil One", sans-serif;
+    --primaryFontSize: 1rem;
   
     }
 
     body {
       margin:0;
       font-family: var(--primaryFont);
+      color: var(--primaryFontColor);
+      background-color: var(--primaryColor);
     }
 
     * {

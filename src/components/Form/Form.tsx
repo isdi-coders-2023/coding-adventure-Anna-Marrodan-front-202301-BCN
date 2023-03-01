@@ -1,4 +1,5 @@
 import Button from "../Button/Button";
+import { FormStyled } from "./FormStyled";
 
 interface FormProps {
   submitForm: () => void;
@@ -6,8 +7,8 @@ interface FormProps {
 
 export const Form = ({ submitForm }: FormProps): JSX.Element => {
   return (
-    <form className="form" onSubmit={submitForm}>
-      <div>
+    <FormStyled className="form" onSubmit={submitForm}>
+      <div className="form__information">
         <label className="form__label" htmlFor="email">
           Email
         </label>
@@ -25,7 +26,7 @@ export const Form = ({ submitForm }: FormProps): JSX.Element => {
           Email is required
         </span>
       </div>
-      <div>
+      <div className="form__information">
         <label className="form__label" htmlFor="password">
           Password
         </label>
@@ -43,7 +44,7 @@ export const Form = ({ submitForm }: FormProps): JSX.Element => {
           Password is required
         </span>
       </div>
-      <div>
+      <div className="form__information">
         <label className="form__label" htmlFor="image">
           Image
         </label>
@@ -62,6 +63,9 @@ export const Form = ({ submitForm }: FormProps): JSX.Element => {
         </span>
       </div>
       <Button text="Sign up" />
-    </form>
+      <span className="form__required-text form__required-text--hidden" hidden>
+        Sorry, something went wrong
+      </span>
+    </FormStyled>
   );
 };
