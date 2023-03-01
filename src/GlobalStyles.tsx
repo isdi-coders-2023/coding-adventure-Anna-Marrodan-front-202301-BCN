@@ -13,9 +13,13 @@ export const GlobalStyles = createGlobalStyle`
   
     }
 
+    body {
+      margin:0;
+      font-family: var(--primaryFont);
+    }
+
     * {
       box-sizing:border-box;
-      margin:0;
       padding:0;
     }
 
@@ -23,10 +27,6 @@ export const GlobalStyles = createGlobalStyle`
       font-family: var(--accent-font);
       color: var(--primaryColor)
 
-    }
-
-    body {
-      background-color: var(--primaryColor)
     }
     
     ol, ul {
@@ -40,7 +40,6 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     input {
-      border: none;
       font-family: inherit;
     }
 
