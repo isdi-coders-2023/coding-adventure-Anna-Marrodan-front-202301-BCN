@@ -63,7 +63,7 @@ export const Form = ({ submitForm }: FormProps): JSX.Element => {
         </span>
       </div>
       <Button text="Sign up" />
-      <span className="form__required-text form__required-text--hidden">
+      <span className="form__required-text form__required-text--hidden" hidden>
         Sorry, something went wrong
       </span>
     </FormStyled>
