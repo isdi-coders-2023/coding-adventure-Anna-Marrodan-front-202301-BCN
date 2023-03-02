@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Button from "../Button/Button";
 import { FormStyled } from "./FormStyled";
 
@@ -6,6 +7,22 @@ interface FormProps {
 }
 
 export const Form = ({ submitForm }: FormProps): JSX.Element => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [image, setImage] = useState("");
+
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setImage(event.target.value);
+  };
+
   return (
     <FormStyled className="form" onSubmit={submitForm}>
       <div className="form__information">
@@ -16,8 +33,11 @@ export const Form = ({ submitForm }: FormProps): JSX.Element => {
           className="form__input"
           type="email"
           placeholder="Introduce your email"
+          name="email"
+          value={email}
+          onChange={handleEmailChange}
           id="email"
-          required
+          autoComplete="off"
         />
         <span
           className="form__required-text form__required-text--hidden"
@@ -34,6 +54,9 @@ export const Form = ({ submitForm }: FormProps): JSX.Element => {
           className="form__input"
           type="password"
           placeholder="Introduce your password"
+          name="password"
+          value={password}
+          onChange={handlePasswordChange}
           id="password"
           required
         />
@@ -53,7 +76,9 @@ export const Form = ({ submitForm }: FormProps): JSX.Element => {
           type="file"
           placeholder="Introduce an image"
           id="image"
-          required
+          name="image"
+          value={image}
+          onChange={handleImageChange}
         />
         <span
           className="form__required-text form__required-text--hidden"
