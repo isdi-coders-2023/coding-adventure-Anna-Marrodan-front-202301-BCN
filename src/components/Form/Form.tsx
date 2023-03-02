@@ -7,23 +7,28 @@ interface FormProps {
 }
 
 export const Form = ({ submitForm }: FormProps): JSX.Element => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [registerData, setRegisterData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleRegisterDataChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setRegisterData({
+      ...registerData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   const [image, setImage] = useState("");
-
-  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setImage(event.target.value);
   };
 
-  const isDisabled = email === "" || password === "" || image === "";
+  const isDisabled =
+    registerData.email === "" || registerData.password === "" || image === "";
 
   return (
     <FormStyled className="form" onSubmit={submitForm}>
@@ -36,8 +41,7 @@ export const Form = ({ submitForm }: FormProps): JSX.Element => {
           type="email"
           placeholder="Introduce your email"
           name="email"
-          value={email}
-          onChange={handleEmailChange}
+          onChange={handleRegisterDataChange}
           id="email"
           autoComplete="off"
         />
@@ -57,8 +61,7 @@ export const Form = ({ submitForm }: FormProps): JSX.Element => {
           type="password"
           placeholder="Introduce your password"
           name="password"
-          value={password}
-          onChange={handlePasswordChange}
+          onChange={handleRegisterDataChange}
           id="password"
           required
         />
