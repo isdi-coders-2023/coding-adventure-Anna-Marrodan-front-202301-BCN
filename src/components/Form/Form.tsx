@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Button from "../Button/Button";
 import { FormStyled } from "./FormStyled";
 
@@ -6,6 +7,29 @@ interface FormProps {
 }
 
 export const Form = ({ submitForm }: FormProps): JSX.Element => {
+  const [registerData, setRegisterData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleRegisterDataChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setRegisterData({
+      ...registerData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const [image, setImage] = useState("");
+
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setImage(event.target.value);
+  };
+
+  const isDisabled =
+    registerData.email === "" || registerData.password === "" || image === "";
+
   return (
     <FormStyled className="form" onSubmit={submitForm}>
       <div className="form__information">
@@ -16,8 +40,10 @@ export const Form = ({ submitForm }: FormProps): JSX.Element => {
           className="form__input"
           type="email"
           placeholder="Introduce your email"
+          name="email"
+          onChange={handleRegisterDataChange}
           id="email"
-          required
+          autoComplete="off"
         />
         <span
           className="form__required-text form__required-text--hidden"
@@ -34,6 +60,8 @@ export const Form = ({ submitForm }: FormProps): JSX.Element => {
           className="form__input"
           type="password"
           placeholder="Introduce your password"
+          name="password"
+          onChange={handleRegisterDataChange}
           id="password"
           required
         />
@@ -53,7 +81,9 @@ export const Form = ({ submitForm }: FormProps): JSX.Element => {
           type="file"
           placeholder="Introduce an image"
           id="image"
-          required
+          name="image"
+          value={image}
+          onChange={handleImageChange}
         />
         <span
           className="form__required-text form__required-text--hidden"
@@ -62,7 +92,7 @@ export const Form = ({ submitForm }: FormProps): JSX.Element => {
           Image is required
         </span>
       </div>
-      <Button text="Sign up" />
+      <Button isDisabled={isDisabled} text="Sign up" />
       <span className="form__required-text form__required-text--hidden" hidden>
         Sorry, something went wrong
       </span>
