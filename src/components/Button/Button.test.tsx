@@ -6,7 +6,7 @@ describe("Given a Button component", () => {
     test("Then it should show a button with the text 'Sign up'", () => {
       const expectedText = "Sign up";
 
-      render(<Button text={expectedText} />);
+      render(<Button isDisabled={true} text={expectedText} />);
 
       const button = screen.getByRole("button", { name: expectedText });
       expect(button).toBeInTheDocument();

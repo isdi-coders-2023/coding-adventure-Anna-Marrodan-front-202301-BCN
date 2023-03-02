@@ -23,6 +23,8 @@ export const Form = ({ submitForm }: FormProps): JSX.Element => {
     setImage(event.target.value);
   };
 
+  const isDisabled = email === "" || password === "" || image === "";
+
   return (
     <FormStyled className="form" onSubmit={submitForm}>
       <div className="form__information">
@@ -87,7 +89,7 @@ export const Form = ({ submitForm }: FormProps): JSX.Element => {
           Image is required
         </span>
       </div>
-      <Button text="Sign up" />
+      <Button isDisabled={isDisabled} text="Sign up" />
       <span className="form__required-text form__required-text--hidden" hidden>
         Sorry, something went wrong
       </span>
